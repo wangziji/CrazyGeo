@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ multitouch_test.xml
+  ~
+  ~ Created on: 29 /6 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+</LinearLayout>

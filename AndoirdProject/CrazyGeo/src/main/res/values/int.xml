@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ int.xml
+  ~
+  ~ Created on: 7 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+    <integer name="board_size">
+        30
+    </integer>
+</resources>

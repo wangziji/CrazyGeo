@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ gamedemo.xml
+  ~
+  ~ Created on: 8 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/test_target"
+                android:src="@drawable/asia"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:focusableInTouchMode="false"/>
+
+        <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/test_orin32"
+                    android:layout_marginTop="26dp"
+                    android:src="@drawable/japan_src"
+                    android:layout_marginLeft="26dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:scaleType="matrix"/>
+
+
+        </FrameLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ attrs.xml
+  ~
+  ~ Created on: 27 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+    <declare-styleable name="GameSurfaceView">
+
+    </declare-styleable>
+    <declare-styleable name="MapImageView">
+
+    </declare-styleable>
+    <declare-styleable name="GameTextView">
+
+    </declare-styleable>
+
+    <declare-styleable name="ClockImageView">
+
+    </declare-styleable>
+    <declare-styleable name="PauseButton">
+
+    </declare-styleable>
+    <declare-styleable name="ResumeLayout">
+
+    </declare-styleable>
+    <declare-styleable name="ReplayLayout">
+
+    </declare-styleable>
+    <declare-styleable name="BackToMenuLayout">
+
+    </declare-styleable>
+    <declare-styleable name="MySeekBar">
+
+    </declare-styleable>
+    <declare-styleable name="ScoreTextView">
+
+    </declare-styleable>
+    <declare-styleable name="HelpImageButton">
+
+    </declare-styleable>
+    <declare-styleable name="LeaderBoardSurfaceView">
+
+    </declare-styleable>
+</resources>

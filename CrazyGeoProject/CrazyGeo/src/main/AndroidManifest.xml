@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ AndroidManifest.xml
+  ~
+  ~ Created on: 9 /8 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.standrews.mscproject.main"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:debuggable="true"
+        android:installLocation="auto"
+        android:hardwareAccelerated="true"
+        >
+        <activity
+            android:name="com.standrews.mscproject.main.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".StartActivity"
+                android:screenOrientation="landscape"
+                android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity
+                android:name=".GameActivity"
+                android:screenOrientation="landscape"
+                android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity android:name=".SettingActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity android:name=".TutorialActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity android:name=".LeaderBoardActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <activity android:name=".CreditsActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <service android:name="com.standrews.mscproject.tcpconnection.TCPService"/>
+        <service android:name="com.standrews.mscproject.tcpconnection.InternetService"/>
+        <receiver android:name="com.standrews.mscproject.tcpconnection.AlarmReceiver"/>
+    </application>
+
+    <supports-screens
+            android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:resizeable="true"
+            android:anyDensity="true"/>
+
+    <!-- Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- External Storage Permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+</manifest>

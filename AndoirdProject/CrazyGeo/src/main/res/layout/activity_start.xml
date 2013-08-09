@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ activity_start.xml
+  ~
+  ~ Created on: 6 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:my="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.standrews.mscproject.custom_ui_componets.MyLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/myLayout"
+            >
+
+        <com.standrews.mscproject.custom_ui_componets.MapImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/map"
+                android:layout_gravity="center"
+                android:adjustViewBounds="false"
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/asian"
+                android:id="@+id/startContinentTextView"
+                android:layout_gravity="center_horizontal|top"
+                android:textSize="30sp"/>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/playButton"
+                android:layout_gravity="center"
+                android:background="@drawable/play_button_action"
+                android:contentDescription="@string/play_string"/>
+
+    </com.standrews.mscproject.custom_ui_componets.MyLayout>
+
+</FrameLayout>

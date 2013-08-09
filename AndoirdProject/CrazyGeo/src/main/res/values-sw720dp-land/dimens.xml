@@ -1,0 +1,14 @@
+<!--
+  ~ dimens.xml
+  ~
+  ~ Created on: 29 /6 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+    <!-- Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here. -->
+    <dimen name="activity_horizontal_margin">128dp</dimen>
+</resources>

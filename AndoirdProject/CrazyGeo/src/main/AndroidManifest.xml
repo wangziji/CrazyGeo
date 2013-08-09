@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ AndroidManifest.xml
+  ~
+  ~ Created on: 29 /6 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.standrews.mscproject.main"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-sdk
+            android:minSdkVersion="8"
+            android:targetSdkVersion="16"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:debuggable="true"
+            android:installLocation="auto"
+            android:hardwareAccelerated="true"
+            >
+        <activity
+                android:name="com.standrews.mscproject.main.MainActivity"
+                android:label="@string/app_name"
+                android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.standrews.mscproject.tests.Test"/>
+        <activity android:name="com.standrews.mscproject.tests.WifiTest"/>
+        <activity android:name="com.standrews.mscproject.tests.ConfigTest"/>
+        <activity android:name="com.standrews.mscproject.tests.ExternalFileTest"/>
+        <activity android:name="com.standrews.mscproject.tests.TCPTest"/>
+        <activity android:name="com.standrews.mscproject.tests.Multitouch"/>
+        <activity android:name="com.standrews.mscproject.tests.GameDemo"/>
+        <activity
+                android:name="com.standrews.mscproject.tests.SurfaceViewExample"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".StartActivity"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".GameActivity"
+                android:screenOrientation="landscape"/>
+
+        <service android:name="com.standrews.mscproject.tcpconnection.TCPService"/>
+    </application>
+
+    <supports-screens
+            android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:resizeable="true"
+            android:anyDensity="true"/>
+
+    <!-- Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- External Storage Permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+</manifest>

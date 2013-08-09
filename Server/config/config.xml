@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : config.xml
+    Created on : May 26, 2013, 3:07 AM
+    Author     : ziji
+    Description:
+        This document is for the configuration of server
+-->
+
+<config>
+    <data_dir>/home/zw21/data</data_dir>
+    <local_cache>/home/zw21/cache</local_cache>
+</config>

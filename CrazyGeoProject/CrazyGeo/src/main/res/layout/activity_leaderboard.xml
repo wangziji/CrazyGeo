@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ activity_leaderboard.xml
+  ~
+  ~ Created on: 27 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.standrews.mscproject.custom_ui_componets.LeaderBoardSurfaceView
+            android:id="@+id/leaderboardSurfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quitLBImageButton"
+            android:background="@drawable/quit_button_action"
+            android:layout_gravity="left|top"/>
+
+</FrameLayout>

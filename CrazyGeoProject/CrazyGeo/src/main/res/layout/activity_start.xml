@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ activity_start.xml
+  ~
+  ~ Created on: 28 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/myLayout"
+            android:background="#fffacd"
+            >
+
+        <com.standrews.mscproject.custom_ui_componets.MapImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/map"
+                android:layout_gravity="center"
+                android:adjustViewBounds="false"
+                />
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/asian"
+                    android:textColor="#e2511c"
+                    android:id="@+id/startContinentTextView"
+                    android:layout_gravity="center_horizontal|top"
+                    android:textSize="30sp"/>
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/navUp"
+                    android:src="@drawable/navigation_up"
+                    android:visibility="invisible"/>
+        </LinearLayout>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/playButton"
+                android:layout_gravity="center"
+                android:background="@drawable/play_button_action"
+                android:contentDescription="@string/play_string"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:gravity="center">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/navDown"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:src="@drawable/navigation_down"
+                    android:visibility="invisible"/>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1a1a1a"
+                    android:layout_gravity="bottom">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="10dp"
+                        android:layout_gravity="right|bottom">
+
+                    <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/settingImageButton"
+                            android:background="@drawable/setting_button_action"
+                            />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="10dp"
+                        android:layout_gravity="left|bottom">
+
+                    <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/leaderBoardImageButton"
+                            android:background="@drawable/leaderboard_button_action"
+                            />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/navLeft"
+                android:layout_gravity="left|center_vertical"
+                android:src="@drawable/navigation_left"
+                android:visibility="invisible"/>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/navRight"
+                android:layout_gravity="right|center_vertical"
+                android:src="@drawable/navigation_right"
+                android:visibility="invisible"/>
+
+
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:id="@+id/loadingLayout"
+            android:background="#fffacd"
+            android:padding="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            >
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/logo_crazy"
+                    android:textColor="#e2511c"
+                    android:id="@+id/logoTextViewCrazy"
+                    android:gravity="left"
+                    android:layout_gravity="left"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/logo_geo"
+                    android:textColor="#e2511c"
+                    android:id="@+id/logoTextViewGeo"
+                    android:gravity="right"
+                    android:layout_gravity="right"/>
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading"
+                android:id="@+id/loadingTextView"
+                android:layout_gravity="right|bottom"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#111"
+                android:textIsSelectable="false"/>
+
+    </FrameLayout>
+
+</FrameLayout>

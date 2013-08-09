@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ activity_game.xml
+  ~
+  ~ Created on: 8 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:my="http://schemas.android.com/apk/res-auto"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+        >
+
+    <com.standrews.mscproject.custom_ui_componets.GameSurfaceView
+            android:id="@+id/gameSurface"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            />
+
+    <com.standrews.mscproject.custom_ui_componets.GameTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:id="@+id/gameTextView"
+            android:layout_gravity="center"
+            android:textColor="#fff200"
+            />
+
+    <com.standrews.mscproject.custom_ui_componets.ClockImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clockImageView"
+            android:layout_gravity="center_horizontal|top"/>
+
+    <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/actionBar"
+            >
+
+        <com.standrews.mscproject.custom_ui_componets.PauseButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:background="@drawable/pause_button_action"
+                android:contentDescription="@string/pause_string"
+                android:id="@+id/pauseButton"
+                />
+
+
+
+    </FrameLayout>
+
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom">
+
+
+        <com.standrews.mscproject.custom_ui_componets.ResumeLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/resumeLayout">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/resumeImageButton"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/resume_button_action"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resume"
+                    android:id="@+id/resumeTextView"
+                    android:gravity="center"/>
+
+        </com.standrews.mscproject.custom_ui_componets.ResumeLayout>
+        <com.standrews.mscproject.custom_ui_componets.ReplayLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/replayLayout">
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/replayImageButton"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/replay_button_action"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/replay"
+                    android:id="@+id/replayTextView"
+                    android:gravity="center"/>
+
+
+        </com.standrews.mscproject.custom_ui_componets.ReplayLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

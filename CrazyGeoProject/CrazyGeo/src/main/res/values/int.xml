@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ int.xml
+  ~
+  ~ Created on: 15 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+    <integer name="board_size">
+        30
+    </integer>
+    <integer name="text_size">
+        20
+    </integer>
+    <integer name="Logo_big">
+        60
+    </integer>
+    <integer name="Logo_small">
+        50
+    </integer>
+    <integer name="asia">1038</integer>
+    <integer name="africa">468</integer>
+    <integer name="america">907</integer>
+    <integer name="europe">1454</integer>
+    <integer name="service_delay">5</integer>
+</resources>

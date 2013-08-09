@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : test.xml
+    Created on : May 26, 2013, 4:40 PM
+    Author     : ziji
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+    
+    <header id="abcdefg" date="06-06-2012">
+        <screen_width></screen_width>
+        <screen_hight></screen_hight>
+        <manufactory></manufactory>
+        <model></model>
+        <os_version></os_version>
+        <memory></memory>
+    </header>
+    
+    <initial_shape time="" type="" start_x="" start_y="" width="" hight="" orientation=""/>
+    
+    <taget_shape time="" type="" start_x="" start_y="" width="" hight="" orientation=""/>
+    
+    <movement type="" start_time="" end_time="">
+        <pointer_1 start_x="" start_y="" end_x="" end_y="" start_time="" end_time=""/>
+        <pointer_2 start_x="" start_y="" end_x="" end_y="" start_time="" end_time=""/>
+    </movement>
+   
+</root>

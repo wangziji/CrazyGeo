@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ activity_game.xml
+  ~
+  ~ Created on: 25 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+        >
+
+    <com.standrews.mscproject.custom_ui_componets.GameSurfaceView
+            android:id="@+id/gameSurface"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            />
+
+    <com.standrews.mscproject.custom_ui_componets.GameTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:id="@+id/gameTextView"
+            android:layout_gravity="center"
+            android:textColor="#e2511c"
+            />
+
+    <com.standrews.mscproject.custom_ui_componets.ClockImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clockImageView"
+            android:layout_gravity="center_horizontal|top"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/actionBar"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+        <com.standrews.mscproject.custom_ui_componets.PauseButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:background="@drawable/pause_button_action"
+                android:contentDescription="@string/pause_string"
+                android:id="@+id/pauseButton"
+                />
+
+        <com.standrews.mscproject.custom_ui_componets.MySeekBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/seekBar"
+                android:progressDrawable="@drawable/scrubber_progress_horizontal_holo_dark"
+                android:thumb="@drawable/scrubber_control_selector_holo_dark"
+                android:max="150"
+                android:progress="50"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_weight="1"/>
+        <com.standrews.mscproject.custom_ui_componets.HelpImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:background="@drawable/help_button_action"
+                android:id="@+id/helpButton"
+                android:layout_weight="0"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom">
+
+        <com.standrews.mscproject.custom_ui_componets.BackToMenuLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/backToMenuLayout"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/backToMenuImageButton"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/menu_button_action"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back_to_menu"
+                    android:id="@+id/backToMenuTextView"
+                    android:gravity="center"/>
+
+        </com.standrews.mscproject.custom_ui_componets.BackToMenuLayout>
+
+        <com.standrews.mscproject.custom_ui_componets.ResumeLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/resumeLayout"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/resumeImageButton"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/resume_button_action"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resume"
+                    android:id="@+id/resumeTextView"
+                    android:gravity="center"/>
+
+        </com.standrews.mscproject.custom_ui_componets.ResumeLayout>
+
+        <com.standrews.mscproject.custom_ui_componets.ReplayLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/replayLayout"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/replayImageButton"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@drawable/replay_button_action"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/replay"
+                    android:id="@+id/replayTextView"
+                    android:gravity="center"/>
+
+
+        </com.standrews.mscproject.custom_ui_componets.ReplayLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/scoreLayout">
+
+        <com.standrews.mscproject.custom_ui_componets.ScoreTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scoreTextView"
+                android:textColor="#1a1a1a"
+                android:layout_gravity="right|top"/>
+    </FrameLayout>
+
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:id="@+id/loadingLayoutGame"
+            android:background="#fffacd">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/logo_crazy"
+                    android:textColor="#e2511c"
+                    android:id="@+id/logoTextViewCrazyGame"
+                    android:gravity="left"
+                    android:layout_gravity="left"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/logo_geo"
+                    android:textColor="#e2511c"
+                    android:id="@+id/logoTextViewGeoGame"
+                    android:gravity="right"
+                    android:layout_gravity="right"/>
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading"
+                android:id="@+id/loadingTextViewGame"
+                android:layout_gravity="right|bottom"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#111"
+                android:textIsSelectable="false"/>
+    </FrameLayout>
+
+</FrameLayout>

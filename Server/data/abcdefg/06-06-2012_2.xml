@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : test.xml
+    Created on : May 26, 2013, 4:40 PM
+    Author     : ziji
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+    
+    <header id="abcdefg" date="06-06-2012">
+        <screen_size></screen_size>
+        <manufactory></manufactory>
+        <model></model>
+        <os_version></os_version>
+        <memory></memory>
+    </header>
+    
+    <initial_shape time="" type="">
+        
+    </initial_shape>
+    
+    <taget_shape time="" type="">
+        
+    </taget_shape>
+    
+    <movement time="" type="">
+        
+    </movement>
+
+</root>

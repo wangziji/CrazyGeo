@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ europe.xml
+  ~
+  ~ Created on: 23 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<root>
+    <country name="russian">
+        <src>russian</src>
+        <tar
+                posX="347"
+                posY="2"
+                width="1104"
+                height="558"/>
+    </country>
+    <country name="united kingdom">
+        <src>uk</src>
+        <tar
+                posX="108"
+                posY="373"
+                width="69"
+                height="100"/>
+    </country>
+    <country name="sweden">
+        <src>sweden</src>
+        <tar
+                posX="238"
+                posY="210"
+                width="89"
+                height="204"/>
+    </country>
+    <country name="france">
+        <src>france</src>
+        <tar
+                posX="133"
+                posY="463"
+                width="97"
+                height="95"/>
+    </country>
+    <country name="spain">
+        <src>spain</src>
+        <tar
+                posX="103"
+                posY="536"
+                width="82"
+                height="68"/>
+    </country>
+    <country name="italy">
+        <src>italy</src>
+        <tar
+                posX="210"
+                posY="503"
+                width="76"
+                height="97"/>
+    </country>
+    <country name="portugal">
+        <src>portugal</src>
+        <tar
+                posX="100"
+                posY="553"
+                width="21"
+                height="43"/>
+    </country>
+    <country name="germany">
+        <src>germany</src>
+        <tar
+                posX="203"
+                posY="419"
+                width="61"
+                height="83"/>
+    </country>
+    <country name="iceland">
+        <src>iceland</src>
+        <tar
+                posX="0"
+                posY="256"
+                width="72"
+                height="52"/>
+    </country>
+    <country name="poland">
+        <src>poland</src>
+        <tar
+                posX="258"
+                posY="420"
+                width="68"
+                height="63"/>
+    </country>
+
+</root>

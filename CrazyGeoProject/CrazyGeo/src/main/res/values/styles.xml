@@ -1,0 +1,25 @@
+<!--
+  ~ styles.xml
+  ~
+  ~ Created on: 18 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.NoTitleBar.Fullscreen">
+
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="android:Theme.Black">
+        <item name="android:seekBarStyle">@style/SeekBarAppTheme</item>
+    </style>
+
+</resources>

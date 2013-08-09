@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ africa.xml
+  ~
+  ~ Created on: 23 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<root>
+    <country name="egypt">
+        <src>egypt</src>
+        <tar
+                posX="285"
+                posY="48"
+                width="77"
+                height="76"/>
+    </country>
+    <country name="libya">
+        <src>libya</src>
+        <tar
+                posX="180"
+                posY="37"
+                width="110"
+                height="102"/>
+    </country>
+    <country name="algeria">
+        <src>algeria</src>
+        <tar
+                posX="61"
+                posY="3"
+                width="138"
+                height="140"/>
+    </country>
+    <country name="nigeria">
+        <src>nigeria</src>
+        <tar
+                posX="138"
+                posY="178"
+                width="81"
+                height="67"/>
+    </country>
+    <country name="cameroon">
+        <src>cameroon</src>
+        <tar
+                posX="177"
+                posY="194"
+                width="52"
+                height="67"/>
+    </country>
+    <country name="zambia">
+        <src>zambia</src>
+        <tar
+                posX="267"
+                posY="328"
+                width="82"
+                height="70"/>
+    </country>
+    <country name="south africa">
+        <src>south_africa</src>
+        <tar
+                posX="231"
+                posY="426"
+                width="111"
+                height="98"/>
+    </country>
+    <country name="madagascar">
+        <src>madagascar</src>
+        <tar
+                posX="412"
+                posY="357"
+                width="51"
+                height="95"/>
+    </country>
+    <country name="kenya">
+        <src>kenya</src>
+        <tar
+                posX="320"
+                posY="279"
+                width="74"
+                height="76"/>
+    </country>
+    <country name="sudan">
+        <src>sudan</src>
+        <tar
+                posX="267"
+                posY="114"
+                width="113"
+                height="136"/>
+    </country>
+</root>

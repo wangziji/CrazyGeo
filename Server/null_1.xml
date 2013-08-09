@@ -1,0 +1,380 @@
+<root>
+	<header id="314e8688-ed12-3c33-9a92-e9550020846b" data="02-08-2013  04:15:28">
+		<screen_width>1280</screen_width>
+		<screen_height>800</screen_height>
+		<manufacturer>asus</manufacturer>
+		<model>Nexus 7</model>
+		<os_version>4.3</os_version>
+		<memory>0.95 GB</memory>
+		<dpi>213</dpi>
+	</header>
+	<body>
+		<initial_shape time="1375388128811" start_x="426.66666" start_y="245.33333" width="263.93002" height="245.33333" orientation="-124.39843"/>
+		<target_shape time="1375388128811" start_x="171.0" start_y="0.0" width="938.0" height="736.0" orientation="0.0"/>
+		<movement time="1375388132405" rotate="false" scale="false">
+			<pointer x="661.21216" y="426.875"/>
+		</movement>
+		<movement time="1375388132449" rotate="false" scale="false">
+			<pointer x="664.3318" y="427.51843"/>
+		</movement>
+		<movement time="1375388132483" rotate="false" scale="false">
+			<pointer x="673.4012" y="430.19855"/>
+		</movement>
+		<movement time="1375388132519" rotate="false" scale="false">
+			<pointer x="693.88605" y="438.965"/>
+		</movement>
+		<movement time="1375388132566" rotate="false" scale="false">
+			<pointer x="733.84735" y="463.89502"/>
+		</movement>
+		<movement time="1375388132601" rotate="false" scale="false">
+			<pointer x="775.85913" y="485.8737"/>
+		</movement>
+		<movement time="1375388132649" rotate="false" scale="false">
+			<pointer x="821.44196" y="511.68097"/>
+		</movement>
+		<movement time="1375388132686" rotate="false" scale="false">
+			<pointer x="854.8069" y="534.33136"/>
+		</movement>
+		<movement time="1375388132732" rotate="false" scale="false">
+			<pointer x="884.85284" y="553.7528"/>
+		</movement>
+		<movement time="1375388132767" rotate="false" scale="false">
+			<pointer x="896.64526" y="562.86475"/>
+		</movement>
+		<movement time="1375388132815" rotate="false" scale="false">
+			<pointer x="913.07025" y="577.2287"/>
+		</movement>
+		<movement time="1375388132875" rotate="false" scale="false">
+			<pointer x="920.86914" y="585.27124"/>
+		</movement>
+		<movement time="1375388132875" rotate="false" scale="false">
+			<pointer x="920.86914" y="585.27124"/>
+		</movement>
+		<movement time="1375388133022" rotate="false" scale="false">
+			<pointer x="865.4546" y="608.125"/>
+		</movement>
+		<movement time="1375388133080" rotate="false" scale="false">
+			<pointer x="865.4546" y="608.125"/>
+			<pointer x="934.5455" y="395.625"/>
+		</movement>
+		<movement time="1375388133080" rotate="false" scale="false">
+			<pointer x="865.4546" y="608.125"/>
+			<pointer x="934.5455" y="395.625"/>
+		</movement>
+		<movement time="1375388133116" rotate="false" scale="false">
+			<pointer x="865.4546" y="608.125"/>
+			<pointer x="937.5758" y="398.75"/>
+		</movement>
+		<movement time="1375388133150" rotate="false" scale="false">
+			<pointer x="865.4546" y="608.125"/>
+			<pointer x="947.40515" y="417.97125"/>
+		</movement>
+		<movement time="1375388133199" rotate="true" scale="true">
+			<pointer x="861.81824" y="607.5"/>
+			<pointer x="963.6365" y="453.75"/>
+		</movement>
+		<movement time="1375388133233" rotate="true" scale="true">
+			<pointer x="856.07874" y="605.3187"/>
+			<pointer x="970.1365" y="469.80338"/>
+		</movement>
+		<movement time="1375388133283" rotate="true" scale="true">
+			<pointer x="847.27277" y="603.125"/>
+			<pointer x="990.94934" y="513.09125"/>
+		</movement>
+		<movement time="1375388133318" rotate="true" scale="true">
+			<pointer x="844.24243" y="601.875"/>
+			<pointer x="994.0017" y="533.39923"/>
+		</movement>
+		<movement time="1375388133366" rotate="true" scale="true">
+			<pointer x="840.6061" y="601.25"/>
+			<pointer x="998.5002" y="574.2361"/>
+		</movement>
+		<movement time="1375388133401" rotate="true" scale="true">
+			<pointer x="837.5758" y="601.25"/>
+			<pointer x="998.7879" y="587.92725"/>
+		</movement>
+		<movement time="1375388133452" rotate="true" scale="true">
+			<pointer x="834.5455" y="601.25"/>
+			<pointer x="997.8008" y="629.5548"/>
+		</movement>
+		<movement time="1375388133509" rotate="true" scale="true">
+			<pointer x="834.5455" y="601.25"/>
+			<pointer x="996.2972" y="654.74335"/>
+		</movement>
+		<movement time="1375388133549" rotate="true" scale="true">
+			<pointer x="831.5152" y="601.25"/>
+			<pointer x="992.4975" y="674.93494"/>
+		</movement>
+		<movement time="1375388133602" rotate="true" scale="true">
+			<pointer x="826.9697" y="601.25"/>
+			<pointer x="985.1515" y="699.0625"/>
+		</movement>
+		<movement time="1375388133762" rotate="false" scale="false">
+			<pointer x="828.48486" y="601.25"/>
+		</movement>
+		<movement time="1375388133762" rotate="false" scale="false">
+			<pointer x="828.48486" y="601.25"/>
+		</movement>
+		<movement time="1375388133762" rotate="false" scale="false">
+			<pointer x="828.48486" y="601.25"/>
+		</movement>
+		<movement time="1375388133762" rotate="false" scale="false">
+			<pointer x="828.48486" y="601.25"/>
+		</movement>
+		<movement time="1375388133762" rotate="false" scale="false">
+			<pointer x="828.48486" y="601.25"/>
+		</movement>
+		<movement time="1375388134281" rotate="false" scale="false">
+			<pointer x="877.5758" y="618.125"/>
+		</movement>
+		<movement time="1375388134342" rotate="false" scale="false">
+			<pointer x="877.5758" y="618.125"/>
+			<pointer x="998.7879" y="445.0"/>
+		</movement>
+		<movement time="1375388134342" rotate="false" scale="false">
+			<pointer x="877.5758" y="618.125"/>
+			<pointer x="998.7879" y="445.0"/>
+		</movement>
+		<movement time="1375388134376" rotate="false" scale="false">
+			<pointer x="877.5758" y="618.125"/>
+			<pointer x="998.2788" y="451.89975"/>
+		</movement>
+		<movement time="1375388134420" rotate="false" scale="true">
+			<pointer x="880.6925" y="618.125"/>
+			<pointer x="995.1343" y="468.21414"/>
+		</movement>
+		<movement time="1375388134466" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="993.93945" y="479.43985"/>
+		</movement>
+		<movement time="1375388134519" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="990.2803" y="488.17194"/>
+		</movement>
+		<movement time="1375388134553" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="987.0214" y="494.04745"/>
+		</movement>
+		<movement time="1375388134602" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="984.4461" y="499.78745"/>
+		</movement>
+		<movement time="1375388134638" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="984.8485" y="503.3392"/>
+		</movement>
+		<movement time="1375388134687" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="984.34357" y="509.3743"/>
+		</movement>
+		<movement time="1375388134732" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="984.24243" y="513.14777"/>
+		</movement>
+		<movement time="1375388134816" rotate="false" scale="true">
+			<pointer x="880.6061" y="618.125"/>
+			<pointer x="984.24243" y="516.51276"/>
+		</movement>
+		<movement time="1375388134928" rotate="false" scale="false">
+			<pointer x="984.24243" y="516.51276"/>
+		</movement>
+		<movement time="1375388134928" rotate="false" scale="false">
+			<pointer x="984.24243" y="516.51276"/>
+		</movement>
+		<movement time="1375388135198" rotate="false" scale="false">
+			<pointer x="1000.6061" y="535.0"/>
+		</movement>
+		<movement time="1375388135251" rotate="false" scale="false">
+			<pointer x="1002.85205" y="538.8602"/>
+		</movement>
+		<movement time="1375388135287" rotate="false" scale="false">
+			<pointer x="1007.8983" y="552.25793"/>
+		</movement>
+		<movement time="1375388135336" rotate="false" scale="false">
+			<pointer x="1012.07733" y="567.3417"/>
+		</movement>
+		<movement time="1375388135377" rotate="false" scale="false">
+			<pointer x="1014.154" y="576.4907"/>
+		</movement>
+		<movement time="1375388135420" rotate="false" scale="false">
+			<pointer x="1017.79346" y="590.27295"/>
+		</movement>
+		<movement time="1375388135469" rotate="false" scale="false">
+			<pointer x="1023.7108" y="605.15344"/>
+		</movement>
+		<movement time="1375388135505" rotate="false" scale="false">
+			<pointer x="1025.5209" y="612.6595"/>
+		</movement>
+		<movement time="1375388135552" rotate="false" scale="false">
+			<pointer x="1027.2958" y="619.49426"/>
+		</movement>
+		<movement time="1375388135585" rotate="false" scale="false">
+			<pointer x="1029.2253" y="623.40216"/>
+		</movement>
+		<movement time="1375388135652" rotate="false" scale="false">
+			<pointer x="1030.4547" y="626.64087"/>
+		</movement>
+		<movement time="1375388135807" rotate="false" scale="false">
+			<pointer x="1030.4547" y="626.64087"/>
+		</movement>
+		<movement time="1375388136114" rotate="false" scale="false">
+			<pointer x="1008.48486" y="520.0"/>
+		</movement>
+		<movement time="1375388136232" rotate="false" scale="false">
+			<pointer x="1010.30304" y="523.125"/>
+			<pointer x="910.9091" y="669.375"/>
+		</movement>
+		<movement time="1375388136232" rotate="false" scale="false">
+			<pointer x="1010.30304" y="523.125"/>
+			<pointer x="910.9091" y="669.375"/>
+		</movement>
+		<movement time="1375388136268" rotate="false" scale="false">
+			<pointer x="1014.29395" y="526.5546"/>
+			<pointer x="910.9091" y="669.375"/>
+		</movement>
+		<movement time="1375388136302" rotate="false" scale="false">
+			<pointer x="1017.5758" y="527.5"/>
+			<pointer x="907.60736" y="667.33203"/>
+		</movement>
+		<movement time="1375388136352" rotate="false" scale="false">
+			<pointer x="1025.8181" y="531.2249"/>
+			<pointer x="903.0789" y="665.0251"/>
+		</movement>
+		<movement time="1375388136387" rotate="false" scale="false">
+			<pointer x="1029.3456" y="533.71674"/>
+			<pointer x="900.49493" y="664.07916"/>
+		</movement>
+		<movement time="1375388136420" rotate="false" scale="false">
+			<pointer x="1032.249" y="537.7832"/>
+			<pointer x="896.6951" y="662.0459"/>
+		</movement>
+		<movement time="1375388136466" rotate="true" scale="false">
+			<pointer x="1035.7732" y="541.9979"/>
+			<pointer x="893.31775" y="660.30444"/>
+		</movement>
+		<movement time="1375388136503" rotate="true" scale="false">
+			<pointer x="1039.3497" y="549.9085"/>
+			<pointer x="890.30304" y="658.75"/>
+		</movement>
+		<movement time="1375388136536" rotate="true" scale="false">
+			<pointer x="1041.2152" y="552.92206"/>
+			<pointer x="885.4483" y="656.24677"/>
+		</movement>
+		<movement time="1375388136571" rotate="true" scale="false">
+			<pointer x="1041.8182" y="555.0"/>
+			<pointer x="881.05914" y="654.5619"/>
+		</movement>
+		<movement time="1375388136620" rotate="true" scale="false">
+			<pointer x="1045.0535" y="561.67285"/>
+			<pointer x="876.9697" y="653.125"/>
+		</movement>
+		<movement time="1375388136653" rotate="true" scale="false">
+			<pointer x="1046.7751" y="566.58545"/>
+			<pointer x="873.00806" y="651.7632"/>
+		</movement>
+		<movement time="1375388136686" rotate="true" scale="true">
+			<pointer x="1047.2727" y="570.0"/>
+			<pointer x="870.4103" y="651.875"/>
+		</movement>
+		<movement time="1375388136720" rotate="true" scale="true">
+			<pointer x="1048.6879" y="574.378"/>
+			<pointer x="870.30304" y="651.875"/>
+		</movement>
+		<movement time="1375388136768" rotate="true" scale="true">
+			<pointer x="1050.3031" y="578.4375"/>
+			<pointer x="867.27277" y="651.25"/>
+		</movement>
+		<movement time="1375388136803" rotate="true" scale="true">
+			<pointer x="1049.697" y="576.875"/>
+			<pointer x="863.9115" y="651.25"/>
+		</movement>
+		<movement time="1375388136836" rotate="true" scale="true">
+			<pointer x="1050.6062" y="581.5625"/>
+			<pointer x="864.24243" y="651.25"/>
+		</movement>
+		<movement time="1375388136883" rotate="true" scale="true">
+			<pointer x="1050.3031" y="583.54297"/>
+			<pointer x="860.8069" y="650.5414"/>
+		</movement>
+		<movement time="1375388136999" rotate="true" scale="true">
+			<pointer x="1050.9518" y="578.4424"/>
+			<pointer x="861.21216" y="650.625"/>
+		</movement>
+		<movement time="1375388137035" rotate="true" scale="true">
+			<pointer x="1052.7437" y="574.9663"/>
+			<pointer x="861.21216" y="650.625"/>
+		</movement>
+		<movement time="1375388137069" rotate="true" scale="true">
+			<pointer x="1053.4921" y="572.63385"/>
+			<pointer x="858.1818" y="651.25"/>
+		</movement>
+		<movement time="1375388137103" rotate="true" scale="true">
+			<pointer x="1054.5455" y="569.375"/>
+			<pointer x="858.1818" y="651.25"/>
+		</movement>
+		<movement time="1375388137136" rotate="true" scale="true">
+			<pointer x="1054.6683" y="566.7401"/>
+			<pointer x="858.1818" y="651.25"/>
+		</movement>
+		<movement time="1375388137185" rotate="true" scale="true">
+			<pointer x="1057.0302" y="563.22943"/>
+			<pointer x="856.9697" y="654.375"/>
+		</movement>
+		<movement time="1375388137252" rotate="true" scale="true">
+			<pointer x="1057.0385" y="560.89545"/>
+			<pointer x="856.9697" y="654.375"/>
+		</movement>
+		<movement time="1375388137349" rotate="true" scale="true">
+			<pointer x="1056.9697" y="561.25"/>
+			<pointer x="853.6778" y="657.0908"/>
+		</movement>
+		<movement time="1375388137385" rotate="true" scale="true">
+			<pointer x="1060.6688" y="558.9611"/>
+			<pointer x="853.9394" y="656.875"/>
+		</movement>
+		<movement time="1375388137466" rotate="true" scale="true">
+			<pointer x="1060.0" y="559.375"/>
+			<pointer x="850.60675" y="658.2497"/>
+		</movement>
+		<movement time="1375388137585" rotate="true" scale="true">
+			<pointer x="1063.0743" y="559.375"/>
+			<pointer x="850.9091" y="658.125"/>
+		</movement>
+		<movement time="1375388137763" rotate="false" scale="false">
+			<pointer x="1063.0304" y="559.375"/>
+		</movement>
+		<movement time="1375388137763" rotate="false" scale="false">
+			<pointer x="1063.0304" y="559.375"/>
+		</movement>
+		<movement time="1375388137763" rotate="false" scale="false">
+			<pointer x="1063.0304" y="559.375"/>
+		</movement>
+		<movement time="1375388138053" rotate="false" scale="false">
+			<pointer x="901.21216" y="661.25"/>
+		</movement>
+		<movement time="1375388138168" rotate="false" scale="false">
+			<pointer x="901.21216" y="657.88055"/>
+		</movement>
+		<movement time="1375388138235" rotate="false" scale="false">
+			<pointer x="898.5496" y="654.6928"/>
+		</movement>
+		<movement time="1375388138284" rotate="false" scale="false">
+			<pointer x="895.71814" y="651.8343"/>
+		</movement>
+		<movement time="1375388138452" rotate="false" scale="false">
+			<pointer x="892.57495" y="649.24927"/>
+		</movement>
+		<movement time="1375388138568" rotate="false" scale="false">
+			<pointer x="889.5881" y="647.43256"/>
+		</movement>
+		<movement time="1375388138651" rotate="false" scale="false">
+			<pointer x="887.18536" y="644.2623"/>
+		</movement>
+		<movement time="1375388138799" rotate="false" scale="false">
+			<pointer x="885.9914" y="641.0716"/>
+		</movement>
+		<movement time="1375388138976" rotate="false" scale="false">
+			<pointer x="885.9914" y="641.0716"/>
+		</movement>
+	</body>
+</root>

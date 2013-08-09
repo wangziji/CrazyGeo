@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ level_testevel_test.xml  ~ Created on: 29 /6 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<!--
+    Document   : test.xml
+    Created on : May 26, 2013, 4:40 PM
+    Author     : ziji
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+    <country name="china">
+        <src>china_src</src>
+        <tar
+                posX="293"
+                posY="27"
+                width="436"
+                height="322"/>
+    </country>
+    <country name="japan">
+        <src>japan_src</src>
+        <tar
+                posX="687"
+                posY="113"
+                width="116"
+                height="136"/>
+    </country>
+</root>

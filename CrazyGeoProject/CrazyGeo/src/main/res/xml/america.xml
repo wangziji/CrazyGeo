@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ america.xml
+  ~
+  ~ Created on: 23 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<root>
+    <country name="canada">
+        <src>canada</src>
+        <tar
+                posX="183"
+                posY="1"
+                width="597"
+                height="570"/>
+    </country>
+    <country name="United States of America">
+        <src>usa</src>
+        <tar
+                posX="2"
+                posY="185"
+                width="684"
+                height="523"/>
+    </country>
+    <country name="mexico">
+        <src>mexico</src>
+        <tar
+                posX="347"
+                posY="649"
+                width="204"
+                height="136"/>
+    </country>
+    <country name="colombia">
+        <src>colombia</src>
+        <tar
+                posX="606"
+                posY="803"
+                width="80"
+                height="110"/>
+    </country>
+    <country name="brazil">
+        <src>brazil</src>
+        <tar
+                posX="640"
+                posY="849"
+                width="266"
+                height="271"/>
+    </country>
+    <country name="argentina">
+        <src>argentina</src>
+        <tar
+                posX="643"
+                posY="1036"
+                width="135"
+                height="297"/>
+    </country>
+    <country name="peru">
+        <src>peru</src>
+        <tar
+                posX="590"
+                posY="886"
+                width="86"
+                height="124"/>
+    </country>
+    <country name="bolivia">
+        <src>bolivia</src>
+        <tar
+                posX="669"
+                posY="949"
+                width="82"
+                height="95"/>
+    </country>
+    <country name="paraguay">
+        <src>paraguay</src>
+        <tar
+                posX="715"
+                posY="1015"
+                width="59"
+                height="64"/>
+    </country>
+    <country name="uruguay">
+        <src>uruguay</src>
+        <tar
+                posX="744"
+                posY="1097"
+                width="37"
+                height="41"/>
+    </country>
+</root>

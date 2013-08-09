@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ asia.xml
+  ~
+  ~ Created on: 23 /7 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<!--
+    Document   : test.xml
+    Created on : May 26, 2013, 4:40 PM
+    Author     : ziji
+    Description:
+        Purpose of the document follows.
+-->
+
+<root>
+    <country name="china">
+        <src>china</src>
+        <tar
+                posX="324"
+                posY="24"
+                width="417"
+                height="306"/>
+    </country>
+    <country name="japan">
+        <src>japan</src>
+        <tar
+                posX="706"
+                posY="110"
+                width="108"
+                height="122"/>
+    </country>
+    <country name="australia">
+        <src>australia</src>
+        <tar
+                posX="593"
+                posY="527"
+                width="277"
+                height="257"/>
+    </country>
+    <country name="new zealand">
+        <src>new_zealand</src>
+        <tar
+                posX="956"
+                posY="706"
+                width="82"
+                height="108"/>
+    </country>
+    <country name="india">
+        <src>india</src>
+        <tar
+                posX="287"
+                posY="192"
+                width="199"
+                height="208"/>
+    </country>
+    <country name="nepal">
+        <src>nepal</src>
+        <tar
+                posX="367"
+                posY="238"
+                width="56"
+                height="33"/>
+    </country>
+    <country name="republic of korea">
+        <src>korea</src>
+        <tar
+                posX="681"
+                posY="172"
+                width="25"
+                height="35"/>
+    </country>
+    <country name="turkey">
+        <src>turkey</src>
+        <tar
+                posX="1"
+                posY="138"
+                width="126"
+                height="56"/>
+    </country>
+    <country name="saudi arabia">
+        <src>saudi_arabia</src>
+        <tar
+                posX="58"
+                posY="223"
+                width="146"
+                height="121"/>
+    </country>
+    <country name="iran">
+        <src>iran</src>
+        <tar
+                posX="123"
+                posY="161"
+                width="131"
+                height="119"/>
+    </country>
+</root>

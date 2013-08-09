@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ strings.xml
+  ~
+  ~ Created on: 9 /8 /2013
+  ~
+  ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
+  ~ This software is the proprietary information of University of St. Andrews.
+  -->
+
+<resources>
+
+    <string name="app_name">Crazy Geo
+    </string>
+    <string name="action_settings">Settings
+    </string>
+    <string name="hello_world">Hello world!
+    </string>
+    <string name="asian">Asia and Oceania
+    </string>
+    <string name="europe">Europe
+    </string>
+    <string name="africa">Africa
+    </string>
+    <string name="america">North and South America
+    </string>
+    <string name="play_string">Play
+    </string>
+    <string name="pause_string">Pause
+    </string>
+    <string name="resume">Resume
+    </string>
+    <string name="replay">Replay
+    </string>
+    <string name="back_to_menu">Menu
+    </string>
+    <string name="logo_crazy">Crazy
+    </string>
+    <string name="logo_geo">Geo
+    </string>
+    <string name="loading">Loading…
+    </string>
+    <string name="tutorial">Tutorial</string>
+    <string name="credits">Credits</string>
+    <string name="handedness">Handedness</string>
+    <string name="rightHand">Right</string>
+    <string name="leftHand">Left</string>
+    <string name="handAuto">Auto-detect</string>
+    <string name="prev">Previous</string>
+    <string name="next">Next</string>
+    <string name="move_country">To move the country, drag the country with your finger.</string>
+    <string name="scale_country">To zoom in the country, use two fingers at once and spread them apart.\nTo zoom out the country use two fingers and pinch them together</string>
+    <string name="rotate_country">To rotate the country, use two fingers and drag them simultaneously in a circular motion</string>
+    <string name="move_map">To move the map, drag the map with you three fingers</string>
+    <string name="scale_map">Use the seek bar to adjust the size of map</string>
+    <string name="tutorial_dialog_msg">Do you want to leave this game and start the tutorial?</string>
+    <string name="permission_dialog_title">Scientific Data Collection</string>
+    <string name="permission_dialog_msg">This game is a part of scientific research at University of St. Andrews. The purpose of this project is to analysis how people manipulate
+    an object through the touch screen. We are appreciate if you allow us to measure how you play this game. We promise that we would NOT collect any privacy information.\nTHANK YOU!</string>
+    <string name="credits_title_1">Project Supervisor</string>
+    <string name="credits_msg1">Dr. Per Ola Kristensson</string>
+    <string name="credits_title2">Game Designer and Programmer</string>
+    <string name="credits_msg2">Ziji Wang</string>
+    <string name="credits_title3">Special Thanks</string>
+    <string name="credits_title4">Copyright Statement</string>
+    <string name="credits_msg4">Some of the image resource and sound effect used in this game are originally from the internet, they are under Creative Commons Attribution 3.0 License or similar.
+    </string>
+    <string name="credits_title5">Background Music</string>
+    <string name="credits_msg5">Author: Unknown</string>
+    <string name="credits_msg6">Link: http://www.playonloop.com/2013-music-loops/pencil-maze/
+    </string>
+    <string name="credits_title6">Sound Effect 1</string>
+    <string name="credits_msg7">Author: Mike Koenig</string>
+    <string name="credits_msg8">Link: http://soundbible.com/1404-Pop-Clip-In.html</string>
+    <string name="credits_msg9">Link: http://soundbible.com/1203-Time-Bomb.html</string>
+    <string name="credits_title7">Sound Effect 2</string>
+    <string name="credits_title8">Sound Effect 3</string>
+    <string name="credits_msg10">Author: Joe Lamb</string>
+    <string name="credits_msg11">Link: http://soundbible.com/1830-Sad-Trombone.html</string>
+    <string name="credits_title9">Font</string>
+    <string name="credits_msg12">Author: Kernalphage</string>
+    <string name="credits_msg13">Link: http://kernalphage.deviantart.com/art/Comics-font-133909651
+    </string>
+    <string name="credits_title10">Application Icon</string>
+    <string name="credits_msg14">Link: http://pixabay.com/en/black-outline-globe-world-planet-48104/
+    </string>
+    <string name="credits_title11">Map</string>
+    <string name="credits_msg15">Link:
+        http://all-free-download.com/free-vector/vector-misc/globe_map_58256.html
+    </string>
+</resources>
