@@ -1,7 +1,7 @@
 /*
  * GameActivity.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -37,7 +37,8 @@ import com.standrews.mscproject.custom_ui_componets.ResumeLayout;
 import com.standrews.mscproject.custom_ui_componets.ScoreTextView;
 import com.standrews.mscproject.game.GameStateMonitor;
 import com.standrews.mscproject.game.GameWorld;
-import com.standrews.mscproject.ui_async_handler.UIAsyncHandler;
+import com.standrews.mscproject.tcpconnection.AlarmReceiver;
+import com.standrews.mscproject.game.ui_async_handler.UIAsyncHandler;
 import com.standrews.mscproject.utils.Configuration;
 import com.standrews.mscproject.utils.DisplayManager;
 
@@ -78,7 +79,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
+        AlarmReceiver.gamePlaying=true;
         fl = (FrameLayout) findViewById(R.id.loadingLayoutGame);
         mHandler = new MyHandler();
 
@@ -140,6 +141,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
             gameWorld.quitGame();
             System.gc();
         }
+        AlarmReceiver.gamePlaying=false;
     }
 
     @Override
@@ -196,6 +198,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
         Configuration configuration = new Configuration();
         int handedness = Integer.parseInt(configuration.getConfigProperties(this).getProperty("HANDEDNESS"));
+        Log.i("me",handedness+"");
         LinearLayout ll = (LinearLayout) findViewById(R.id.actionBar);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.MATCH_PARENT);

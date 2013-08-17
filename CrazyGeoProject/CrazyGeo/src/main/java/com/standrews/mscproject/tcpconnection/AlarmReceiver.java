@@ -1,7 +1,7 @@
 /*
  * AlarmReceiver.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -24,6 +24,8 @@ import com.standrews.mscproject.utils.NetworkChecker;
  */
 public class AlarmReceiver extends BroadcastReceiver {
 
+    public static boolean gamePlaying = false;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("me", "start send");
@@ -44,7 +46,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         public void run() {
             NetworkChecker mNetworkChecker = new NetworkChecker(context);
             Looper.prepare();
-            if (mNetworkChecker.isWifiReachable()) {
+            if(gamePlaying)
+                Log.i("me", "playing");
+            if (mNetworkChecker.isWifiReachable()&&!gamePlaying) {
                 FileSender fs = new FileSender(context);
                 int result = fs.send();
                 Log.i("me", "result" + result);

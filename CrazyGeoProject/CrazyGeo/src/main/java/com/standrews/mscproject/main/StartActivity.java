@@ -1,7 +1,7 @@
 /*
  * StartActivity.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -56,13 +56,13 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
     private TextView textView;
     private String[] continentName;
     private Configuration configuration;
-    private int handedness, autoDetect;
+    private int autoDetect;
     private FrameLayout fl;
     private Handler mHandler;
     private DisplayManager dm;
     private MusicPlayer musicPlayer;
     private boolean isFirstTime = true;
-    private ImageView left, right, up, down;
+    private ImageView left, right;
 
     @Override
     public void onClick(View view) {
@@ -215,30 +215,30 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                         transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_asia);
                         break;
                     case RIGHT:
-                        continent = Continent.AMERICA;
-                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_america);
-                        break;
-                    case UP:
                         continent = Continent.AFRICA;
                         transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_africa);
                         break;
+//                    case UP:
+//                        continent = Continent.AFRICA;
+//                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_africa);
+//                        break;
                 }
                 break;
             case Continent.AFRICA:
 
                 switch (direction) {
                     case LEFT:
-                        continent = Continent.ASIA;
-                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_asia);
+                        continent = Continent.EUROPE;
+                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_europe);
                         break;
                     case RIGHT:
                         continent = Continent.AMERICA;
                         transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_america);
                         break;
                     case DOWN:
-                        continent = Continent.EUROPE;
-                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_europe);
-                        break;
+//                        continent = Continent.EUROPE;
+//                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_europe);
+//                        break;
                 }
                 break;
             case Continent.AMERICA:
@@ -259,7 +259,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
             map.clearAnimation();
             map.startAnimation(transfer);
             textView.setText(continentName[continent]);
-            navigationAnimation();
         }
         return true;
     }
@@ -280,15 +279,17 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
             } else {
                 hand = 0;
             }
+            Log.i("me",hand+"hand");
             setHandedness(hand);
             return UP;
         } else if (degree > 135 || degree < -135) {
-            if (degree <= 180) {
+            if (degree <= 180 && degree>135) {
                 hand = 1;
             } else {
                 hand = 0;
             }
             setHandedness(hand);
+            Log.i("me",hand+"hand");
             return RIGHT;
         } else if (degree >= -135 && degree < -45) {
             if (degree >= -90) {
@@ -305,6 +306,7 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                 hand = 0;
             }
             setHandedness(hand);
+            Log.i("me",hand+"hand");
             return LEFT;
         }
 
@@ -344,8 +346,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         ImageButton lb = (ImageButton) findViewById(R.id.leaderBoardImageButton);
         lb.setOnClickListener(StartActivity.this);
 
-
-        handedness = Integer.parseInt(configuration.getConfigProperties(StartActivity.this).getProperty("HANDEDNESS"));
         autoDetect = Integer.parseInt(configuration.getConfigProperties(StartActivity.this).getProperty("AUTO_DETECT"));
 
 
@@ -356,8 +356,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         continentName[3] = getResources().getString(R.string.america);
 
         //set navigation icon
-        up = (ImageView) findViewById(R.id.navUp);
-        down = (ImageView) findViewById(R.id.navDown);
         left = (ImageView) findViewById(R.id.navLeft);
         right = (ImageView) findViewById(R.id.navRight);
 
@@ -373,6 +371,7 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
             AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
             int delay = getResources().getInteger(R.integer.service_delay);
             long interval = delay * 1000 * 60;
+//            long interval = 1000 * 5;
             manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), interval, pendingIntent);
 
         }
@@ -382,45 +381,13 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
     }
 
     private void navigationAnimation() {
-        up.clearAnimation();
-        down.clearAnimation();
         left.clearAnimation();
         right.clearAnimation();
-        up.setVisibility(View.INVISIBLE);
-        down.setVisibility(View.INVISIBLE);
-        left.setVisibility(View.INVISIBLE);
-        right.setVisibility(View.INVISIBLE);
         Animation transfer1 = AnimationUtils.loadAnimation(StartActivity.this, R.anim.appear);
-        switch (continent) {
-            case Continent.ASIA:
-                left.setVisibility(View.VISIBLE);
-                left.startAnimation(transfer1);
-                right.setVisibility(View.VISIBLE);
-                right.startAnimation(transfer1);
-                break;
-            case Continent.EUROPE:
-                left.setVisibility(View.VISIBLE);
-                left.startAnimation(transfer1);
-                right.setVisibility(View.VISIBLE);
-                right.startAnimation(transfer1);
-                down.setVisibility(View.VISIBLE);
-                down.startAnimation(transfer1);
-                break;
-            case Continent.AFRICA:
-                left.setVisibility(View.VISIBLE);
-                left.startAnimation(transfer1);
-                right.setVisibility(View.VISIBLE);
-                right.startAnimation(transfer1);
-                up.setVisibility(View.VISIBLE);
-                up.startAnimation(transfer1);
-                break;
-            case Continent.AMERICA:
-                right.setVisibility(View.VISIBLE);
-                right.startAnimation(transfer1);
-                left.setVisibility(View.VISIBLE);
-                left.startAnimation(transfer1);
-                break;
-        }
+        left.setVisibility(View.VISIBLE);
+        left.startAnimation(transfer1);
+        right.setVisibility(View.VISIBLE);
+        right.startAnimation(transfer1);
     }
 
     private float rotation(MotionEvent event, MotionEvent event2) {
@@ -431,7 +398,7 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
     }
 
     private void setHandedness(int hand) {
-        if (autoDetect == 1 && hand != handedness) {
+        if (autoDetect == 1) {
             Properties prop = configuration.getConfigProperties(this);
             prop.setProperty("HANDEDNESS", hand + "");
             configuration.saveConfigProperties(this, prop);
@@ -472,43 +439,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                     textView.setText(continentName[continent]);
                     navigationAnimation();
                     break;
-                case 3:
-                    Animation transfer1 = AnimationUtils.loadAnimation(StartActivity.this, R.anim.appear);
-                    switch (continent) {
-                        case Continent.ASIA:
-                            left.setVisibility(View.VISIBLE);
-                            left.startAnimation(transfer1);
-                            right.setVisibility(View.VISIBLE);
-                            right.startAnimation(transfer1);
-                            break;
-                        case Continent.EUROPE:
-                            left.setVisibility(View.VISIBLE);
-                            left.startAnimation(transfer1);
-                            right.setVisibility(View.VISIBLE);
-                            right.startAnimation(transfer1);
-                            down.setVisibility(View.VISIBLE);
-                            down.startAnimation(transfer1);
-                            break;
-                        case Continent.AFRICA:
-                            left.setVisibility(View.VISIBLE);
-                            left.startAnimation(transfer1);
-                            right.setVisibility(View.VISIBLE);
-                            right.startAnimation(transfer1);
-                            up.setVisibility(View.VISIBLE);
-                            up.startAnimation(transfer1);
-                            break;
-                        case Continent.AMERICA:
-                            right.setVisibility(View.VISIBLE);
-                            right.startAnimation(transfer1);
-                            break;
-                    }
-                    break;
-                case 4:
-                    up.setVisibility(View.INVISIBLE);
-                    down.setVisibility(View.INVISIBLE);
-                    left.setVisibility(View.INVISIBLE);
-                    right.setVisibility(View.INVISIBLE);
-                    break;
             }
         }
     }
@@ -542,6 +472,7 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 int delay = getResources().getInteger(R.integer.service_delay);
                 long interval = delay * 1000 * 60;
+//                long interval = 1000 * 5;
                 manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), interval, pendingIntent);
             }
         });

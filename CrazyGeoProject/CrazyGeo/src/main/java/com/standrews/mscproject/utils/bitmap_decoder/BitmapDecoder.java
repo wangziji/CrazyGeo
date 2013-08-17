@@ -1,13 +1,13 @@
 /*
  * BitmapDecoder.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
  */
 
-package com.standrews.mscproject.bitmap_decoder;
+package com.standrews.mscproject.utils.bitmap_decoder;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

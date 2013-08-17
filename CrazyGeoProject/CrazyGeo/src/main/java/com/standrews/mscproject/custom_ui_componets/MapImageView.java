@@ -1,7 +1,7 @@
 /*
  * MapImageView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -14,7 +14,7 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.standrews.mscproject.bitmap_decoder.BitmapDecoder;
+import com.standrews.mscproject.utils.bitmap_decoder.BitmapDecoder;
 
 /**
  * MSc project

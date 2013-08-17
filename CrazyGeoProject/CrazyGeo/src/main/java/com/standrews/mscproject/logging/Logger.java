@@ -1,7 +1,7 @@
 /*
  * Logger.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 17 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -49,7 +49,7 @@ public class Logger {
         Configuration config = new Configuration();
         Properties info = config.getConfigProperties(context);
         sb = new StringBuilder();
-        SimpleDateFormat sDateFormat = new SimpleDateFormat("dd-MM-yyyy  hh:mm:ss");
+        SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());
         String date = sDateFormat.format(curDate);
 
@@ -64,6 +64,7 @@ public class Logger {
         sb.append("\t\t<os_version>").append(info.getProperty("OS_VERSION")).append("</os_version>\n");
         sb.append("\t\t<memory>").append(info.getProperty("MEMORY")).append("</memory>\n");
         sb.append("\t\t<dpi>").append(info.getProperty("DPI")).append("</dpi>\n");
+        sb.append("\t\t<handedness>").append(info.getProperty("HANDEDNESS")).append("</handedness>\n");
         sb.append("\t</header>\n");
         efm.writeFile(sb.toString());
 
