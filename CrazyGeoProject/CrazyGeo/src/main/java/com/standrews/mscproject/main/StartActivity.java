@@ -1,7 +1,7 @@
 /*
  * StartActivity.java
  *
- * Created on: 17 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -35,7 +35,7 @@ import android.widget.TextView;
 import com.standrews.mscproject.custom_ui_componets.MapImageView;
 import com.standrews.mscproject.game.Continent;
 import com.standrews.mscproject.music.MusicPlayer;
-import com.standrews.mscproject.tcpconnection.AlarmReceiver;
+import com.standrews.mscproject.tcpconnection.FileTransmitService;
 import com.standrews.mscproject.utils.Configuration;
 import com.standrews.mscproject.utils.DisplayManager;
 
@@ -45,6 +45,8 @@ import java.util.Properties;
 /**
  * MSc project
  * <p/>
+ * Activity for main menu
+ *
  * Created by Ziji Wang on 13-7-6.
  */
 public class StartActivity extends Activity implements View.OnTouchListener, GestureDetector.OnGestureListener, View.OnClickListener {
@@ -125,7 +127,17 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
     @Override
     protected void onPause() {
         super.onPause();
+        Log.i("me", "pause");
+        if (musicPlayer != null) {
+            musicPlayer.release();
+        }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("me", "resume");
     }
 
     @Override
@@ -160,9 +172,9 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
             }
 
         } else {
-            if (musicPlayer != null) {
-                musicPlayer.release();
-            }
+//            if (musicPlayer != null) {
+//                musicPlayer.release();
+//            }
         }
     }
 
@@ -218,10 +230,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                         continent = Continent.AFRICA;
                         transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_africa);
                         break;
-//                    case UP:
-//                        continent = Continent.AFRICA;
-//                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_africa);
-//                        break;
                 }
                 break;
             case Continent.AFRICA:
@@ -236,9 +244,6 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                         transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_america);
                         break;
                     case DOWN:
-//                        continent = Continent.EUROPE;
-//                        transfer = AnimationUtils.loadAnimation(this, R.anim.zoom_in_europe);
-//                        break;
                 }
                 break;
             case Continent.AMERICA:
@@ -270,8 +275,14 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         return true;
     }
 
+    /**
+     * Detect the direction of fling and user's handedness
+     * @param event MotionEvent
+     * @param event2 MotionEvent
+     * @return int, represent the direction
+     */
     private int flingDirection(MotionEvent event, MotionEvent event2) {
-        float degree = rotation(event, event2);
+        float degree = orientation(event, event2);
         int hand;
         if (degree > 45 && degree <= 135) {
             if (degree >= 90) {
@@ -312,6 +323,9 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
 
     }
 
+    /**
+     * Initialize
+     */
     private void initialize() {
         //delete window background
         getWindow().setBackgroundDrawable(null);
@@ -366,12 +380,11 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         if (permission == 0) {
             dialog();
         } else {
-            Intent mIntent = new Intent(this, AlarmReceiver.class);
+            Intent mIntent = new Intent(this, FileTransmitService.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, mIntent, 0);
             AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
             int delay = getResources().getInteger(R.integer.service_delay);
             long interval = delay * 1000 * 60;
-//            long interval = 1000 * 5;
             manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), interval, pendingIntent);
 
         }
@@ -380,6 +393,9 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         isFirstTime = false;
     }
 
+    /**
+     * Set animation for navigation
+     */
     private void navigationAnimation() {
         left.clearAnimation();
         right.clearAnimation();
@@ -390,13 +406,23 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         right.startAnimation(transfer1);
     }
 
-    private float rotation(MotionEvent event, MotionEvent event2) {
+    /**
+     * Detect the orientation between two MotionEvent
+     * @param event MotionEvent, start
+     * @param event2 MotionEvent, end
+     * @return float orientation
+     */
+    private float orientation(MotionEvent event, MotionEvent event2) {
         float delta_x = (event.getX(0) - event2.getX(0));
         float delta_y = (event.getY(0) - event2.getY(0));
         double radians = Math.atan2(delta_y, delta_x);
         return (float) Math.toDegrees(radians);
     }
 
+    /**
+     * Save handedness info
+     * @param hand int, 0=left,1=right
+     */
     private void setHandedness(int hand) {
         if (autoDetect == 1) {
             Properties prop = configuration.getConfigProperties(this);
@@ -455,6 +481,9 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
         }
     }
 
+    /**
+     * Dialog for consent
+     */
     protected void dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.permission_dialog_title);
@@ -467,12 +496,11 @@ public class StartActivity extends Activity implements View.OnTouchListener, Ges
                 Properties config = configuration.getConfigProperties(StartActivity.this);
                 config.setProperty("USER_PERMISSION", 1 + "");
                 configuration.saveConfigProperties(StartActivity.this, config);
-                Intent mIntent = new Intent(StartActivity.this, AlarmReceiver.class);
+                Intent mIntent = new Intent(StartActivity.this, FileTransmitService.class);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(StartActivity.this, 0, mIntent, 0);
                 AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 int delay = getResources().getInteger(R.integer.service_delay);
                 long interval = delay * 1000 * 60;
-//                long interval = 1000 * 5;
                 manager.setRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), interval, pendingIntent);
             }
         });

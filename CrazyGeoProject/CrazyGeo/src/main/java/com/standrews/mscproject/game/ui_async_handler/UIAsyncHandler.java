@@ -1,7 +1,7 @@
 /*
  * UIAsyncHandler.java
  *
- * Created on: 17 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -17,6 +17,8 @@ import com.standrews.mscproject.game.GameStateReporter;
 /**
  * MSc project
  * <p/>
+ * This class responsible for control the delay of the main thread.
+ *
  * Created by Ziji Wang on 13-7-12.
  */
 public class UIAsyncHandler implements GameEventListener, GameStateReporter {
@@ -24,6 +26,9 @@ public class UIAsyncHandler implements GameEventListener, GameStateReporter {
     private GameStateMonitor mGameStateMonitor;
     private Thread t;
 
+    /**
+     * Constructor
+     */
     public UIAsyncHandler() {
     }
 

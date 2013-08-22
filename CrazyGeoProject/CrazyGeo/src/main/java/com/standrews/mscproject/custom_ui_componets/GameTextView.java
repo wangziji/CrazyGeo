@@ -1,7 +1,7 @@
 /*
  * GameTextView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -21,6 +21,8 @@ import com.standrews.mscproject.game.GameEventListener;
 /**
  * MSc project
  * <p/>
+ * This class defined the TextView shown in the center of game activity
+ *
  * Created by Ziji Wang on 13-7-11.
  */
 public class GameTextView extends TextView implements GameEventListener {
@@ -29,6 +31,7 @@ public class GameTextView extends TextView implements GameEventListener {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            //show the count down message
             switch (msg.what) {
                 case 3:
                     setText("3");
@@ -46,6 +49,11 @@ public class GameTextView extends TextView implements GameEventListener {
         }
     };
 
+    /**
+     * Constructor, inherited from android.widget.TextView
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public GameTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -54,7 +62,9 @@ public class GameTextView extends TextView implements GameEventListener {
     public void onGamePrepare(Country country, int continent, int round) {
         this.setText(null);
         this.invalidate();
+        //get the name of country
         msg = country.getName().toUpperCase();
+        //Open a new thread and send count down signal to the handler every second
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -96,7 +106,7 @@ public class GameTextView extends TextView implements GameEventListener {
 
     @Override
     public void onGameWin() {
-//        String win = "Congratulation!";
+        //show the name of country
         this.setText(msg);
         this.invalidate();
     }

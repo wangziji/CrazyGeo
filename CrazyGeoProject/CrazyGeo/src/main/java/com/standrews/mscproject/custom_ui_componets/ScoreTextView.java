@@ -1,7 +1,7 @@
 /*
  * ScoreTextView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -24,6 +24,11 @@ import java.util.Properties;
 /**
  * MSc project
  * <p/>
+ * This class defined score TextView for the game activity.
+ * If the player reached the highest score, the text will
+ * display in orange and shows the current highest score.
+ * Otherwise, the text will be black and shows the current round
+ *
  * Created by Ziji Wang on 13-7-14.
  */
 public class ScoreTextView extends TextView implements GameEventListener {
@@ -31,11 +36,17 @@ public class ScoreTextView extends TextView implements GameEventListener {
     private Configuration configuration;
     private int highest = -1, continent, score;
 
+
     public ScoreTextView(Context context) {
         super(context);
         configuration = new Configuration();
     }
 
+    /**
+     * Constructor, inherited from android.widget.TextView
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public ScoreTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         configuration = new Configuration();
@@ -52,6 +63,7 @@ public class ScoreTextView extends TextView implements GameEventListener {
         if (round == 1) {
             this.continent = continent;
             setTextColor(Color.rgb(26, 26, 26));
+            //read the current highest score
             switch (continent) {
                 case Continent.ASIA:
                     highest = Integer.parseInt(configuration.getConfigProperties(getContext()).getProperty("ASIA_BEST"));
@@ -67,6 +79,7 @@ public class ScoreTextView extends TextView implements GameEventListener {
                     break;
             }
         }
+        //define the text
         if (score > highest) {
             setTextColor(Color.rgb(226, 81, 28));
             String text = "Best Score: " + score;

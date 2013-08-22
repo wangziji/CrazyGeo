@@ -1,7 +1,7 @@
 /*
- * MultitouchHandler2.java
+ * MultitouchHandler.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -31,7 +31,7 @@ import com.standrews.mscproject.utils.Configuration;
  * <p/>
  * Created by Ziji Wang on 13-6-26.
  */
-public class MultitouchHandler2 {
+public class MultitouchHandler {
 
     private GameSurfaceView surfaceView;
     private int action = 0;//0 = none, 1 = move, 2 = scale or rotate, 3 = move target
@@ -50,7 +50,7 @@ public class MultitouchHandler2 {
      * @param context     Context given by GameSurfaceView
      * @param surfaceView GameSurfaceView itself
      */
-    public MultitouchHandler2(Context context, GameSurfaceView surfaceView) {
+    public MultitouchHandler(Context context, GameSurfaceView surfaceView) {
         this.context = context;
         this.surfaceView = surfaceView;
         logger = new Logger();
@@ -63,6 +63,9 @@ public class MultitouchHandler2 {
         permission = Integer.parseInt(configuration.getConfigProperties(context).getProperty("USER_PERMISSION"));
     }
 
+    /**
+     * Call the logger to log the end of XML
+     */
     public void loggingEnd() {
         if (permission == 1) {
             handler.post(new Runnable() {
@@ -75,6 +78,9 @@ public class MultitouchHandler2 {
         }
     }
 
+    /**
+     * Call the logger to log the header of XML
+     */
     public void loggingHeader() {
         if (permission == 1) {
             handler.post(new Runnable() {
@@ -86,6 +92,9 @@ public class MultitouchHandler2 {
         }
     }
 
+    /**
+     * Call the logger to log the end of XML
+     */
     public void loggingObjects() {
         if (permission == 1) {
             handler.post(new Runnable() {
@@ -97,6 +106,12 @@ public class MultitouchHandler2 {
         }
     }
 
+    /**
+     * responds the seek bar change
+     * @param seekBar SeekBar
+     * @param i int, seek bar value
+     * @param b boolean
+     */
     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
         float value = 0.5f + i * 0.01f;
         BitmapResource tar = surfaceView.getTargetBitmap();
@@ -168,8 +183,8 @@ public class MultitouchHandler2 {
                         }
 
                     } else if (action == 2) {
-                        scaleNagnitudeFiltering(res, event);
-                        rotateNagnitudeFiltering(res, event);
+                        scaleMagnitudeFiltering(res, event);
+                        rotateMagnitudeFiltering(res, event);
 
                     } else if (action == 3) {
                         PointF newMid = new PointF();
@@ -193,7 +208,6 @@ public class MultitouchHandler2 {
         }
         //repaint the view
         surfaceView.rePaint();
-
         return true;
     }
 
@@ -255,6 +269,11 @@ public class MultitouchHandler2 {
         return true;
     }
 
+    /**
+     * Check the map object still inside the view
+     *
+     * @return True: the object still inside the view, False: the object is outside the view
+     */
     private boolean checkTarBound() {
         BitmapResource res = surfaceView.getTargetBitmap();
 
@@ -278,6 +297,11 @@ public class MultitouchHandler2 {
         return pts[0] < width_v && pts[1] < height_v && pts[2] > width_v && pts[3] < height_v && pts[4] < width_v && pts[5] > height_v && pts[6] > width_v && pts[7] > height_v;
     }
 
+    /**
+     * Calculate the middle point of fingers
+     * @param point PointF, stored the result
+     * @param event MotionEvent
+     */
     private void midPoint(PointF point, MotionEvent event) {
         int counter = event.getPointerCount();
         float x = 0;
@@ -290,13 +314,13 @@ public class MultitouchHandler2 {
     }
 
     /**
-     * Use Nagnitude Filtering technique to detect rotate gesture.
+     * Use Magnitude Filtering technique to detect rotate gesture.
      * The threshold equals 15
      *
      * @param res   BitmapResource
      * @param event MotionEvent
      */
-    private void rotateNagnitudeFiltering(BitmapResource res, MotionEvent event) {
+    private void rotateMagnitudeFiltering(BitmapResource res, MotionEvent event) {
         float newDegree = rotation(event) - oldDegree;
         if (Math.abs(newDegree) < 15) {
             if (isRotate) {
@@ -341,13 +365,13 @@ public class MultitouchHandler2 {
     }
 
     /**
-     * Use Nagnitude Filtering technique to detect scale gesture.
+     * Use Magnitude Filtering technique to detect scale gesture.
      * The threshold equals 0.1
      *
      * @param res   BitmapResource
      * @param event MotionEvent
      */
-    private void scaleNagnitudeFiltering(BitmapResource res, MotionEvent event) {
+    private void scaleMagnitudeFiltering(BitmapResource res, MotionEvent event) {
         float newDist = spacing(event);
         float scale = newDist / oldDistance;
         if (Math.abs(1 - scale) < 0.1) {

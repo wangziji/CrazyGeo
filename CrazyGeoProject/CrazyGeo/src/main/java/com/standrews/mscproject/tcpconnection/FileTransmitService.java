@@ -1,7 +1,7 @@
 /*
- * AlarmReceiver.java
+ * FileTransmitService.java
  *
- * Created on: 17 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -20,9 +20,11 @@ import com.standrews.mscproject.utils.NetworkChecker;
 /**
  * MSc project
  * <p/>
+ * This class extends the BroadcastReceiver responsible for sent file to server
+ *
  * Created by Ziji Wang on 13-8-9.
  */
-public class AlarmReceiver extends BroadcastReceiver {
+public class FileTransmitService extends BroadcastReceiver {
 
     public static boolean gamePlaying = false;
 
@@ -34,6 +36,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     }
 
+    /**
+     * File transmit thread
+     */
     private class MyRunnable implements Runnable {
 
         private Context context;

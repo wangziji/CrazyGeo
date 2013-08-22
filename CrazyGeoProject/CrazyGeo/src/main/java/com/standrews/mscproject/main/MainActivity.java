@@ -2,7 +2,7 @@
 /*
  * MainActivity.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -26,8 +26,17 @@ import android.widget.ImageView;
 import com.standrews.mscproject.utils.Configuration;
 import com.standrews.mscproject.utils.DeviceInformation;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * MSc project
+ * <p/>
+ * The activity for splash screen
+ *
+ * Created by Ziji Wang on 13-7-26.
+ */
 public class MainActivity extends Activity {
 
 
@@ -35,6 +44,9 @@ public class MainActivity extends Activity {
     private MyHandler mHandler;
     private ImageView logo;
 
+    /**
+     * Initialize, loading config files
+     */
     private void initialize() {
         Configuration mConfiguration = new Configuration();
         Properties config = mConfiguration.getConfigProperties(MainActivity.this);
@@ -62,6 +74,20 @@ public class MainActivity extends Activity {
             config.setProperty("SOUND", 0 + "");
             config.setProperty("USER_PERMISSION", 0 + "");
         }
+        Properties props = new Properties();
+        InputStream in = this.getClass().getResourceAsStream("/assets/config.properties");
+        try {
+            props.load(in);
+        } catch (IOException e) {
+            System.out.println();
+            e.printStackTrace();
+        }
+        String ip = props.getProperty("SERV_IP");
+        String port = props.getProperty("SERV_PORT");
+        String dir = props.getProperty("DATA_DIR");
+        config.setProperty("SERV_IP", ip);
+        config.setProperty("SERV_PORT", port);
+        config.setProperty("DATA_DIR", dir);
         played++;
         config.setProperty("PLAYED", played + "");
         mConfiguration.saveConfigProperties(MainActivity.this, config);

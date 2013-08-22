@@ -1,7 +1,7 @@
 /*
  * CreditsActivity.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 /**
  * MSc project
  * <p/>
+ * Activity of Credits screen
+ *
  * Created by Ziji Wang on 13-7-29.
  */
 public class CreditsActivity extends Activity implements View.OnClickListener {
@@ -31,6 +33,7 @@ public class CreditsActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);

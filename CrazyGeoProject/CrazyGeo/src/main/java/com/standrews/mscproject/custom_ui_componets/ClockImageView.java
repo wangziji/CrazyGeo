@@ -1,7 +1,7 @@
 /*
  * ClockImageView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -32,6 +32,8 @@ import java.util.ArrayList;
 /**
  * MSc project
  * <p/>
+ * This class implemented the clock on the top of game activity. It is also the timer of the game.
+ *
  * Created by Ziji Wang on 13-7-13.
  */
 public class ClockImageView extends ImageView implements GameEventListener, GameStateReporter, SoundPool.OnLoadCompleteListener {
@@ -46,15 +48,24 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
     private SoundPool soundPool;
     private int soundID_tick, soundID_lose, streamID_tick = -1, sound;
 
+    /**
+     * Constructor, inherited from android.widget.ImageView
+     * @param context context
+     * @param attrs AttributeSet
+     */
     public ClockImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         handler = new MyHandler();
         mRunnable = new MyRunnable();
+
+        //initialize the sound pool
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         soundPool.setOnLoadCompleteListener(this);
         soundID_tick = soundPool.load(getContext(), R.raw.ticktock, 1);
         soundID_lose = soundPool.load(getContext(), R.raw.lose1, 1);
         Configuration configuration = new Configuration();
+
+        // get the sound config
         sound = Integer.parseInt(configuration.getConfigProperties(context).getProperty("SOUND"));
     }
 
@@ -64,6 +75,8 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
             loadImages();
             isFirstTime = false;
         }
+        //Set the timer for different level. Time length = X*6
+        //For example, round<=10, time length = 10*6 = 60 seconds
         if (round <= 10) {
             delay = 10;
         } else if (round <= 20) {
@@ -77,23 +90,30 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
         }
         count = 1;
         index = 1;
+
+        //set the image to initial state
         setImageBitmap(clocks.get(0));
         invalidate();
     }
 
     @Override
     public void onGameStart() {
+        //start timing
         handler.post(mRunnable);
     }
 
     @Override
     public void onGamePause() {
+
+        //remove the thread, stop the timer
         handler.removeCallbacks(mRunnable);
         soundPool.pause(streamID_tick);
     }
 
     @Override
     public void onGameResume() {
+
+        //restart the timer
         handler.post(mRunnable);
         soundPool.resume(streamID_tick);
     }
@@ -124,11 +144,15 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
         soundLoaded = true;
     }
 
+    /**
+     * Recycle the bitmaps and sound effects
+     */
     public void recycle() {
         handler.removeCallbacks(mRunnable);
         for (Bitmap b : clocks) {
             b.recycle();
         }
+        soundPool.release();
     }
 
     @Override
@@ -141,6 +165,9 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
         mGameStateMonitor.obtainMessage(GameStateMonitor.MEG_STATE_CHANGE, state, 0, null).sendToTarget();
     }
 
+    /**
+     * Load bitmap images for the clock
+     */
     private void loadImages() {
         clocks = new ArrayList<Bitmap>();
         Bitmap click0 = BitmapFactory.decodeResource(getResources(), R.drawable.clock0);
@@ -172,6 +199,9 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
 
     }
 
+    /**
+     * Defined how the clock should responds in different circumstance.
+     */
     private class MyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -197,6 +227,9 @@ public class ClockImageView extends ImageView implements GameEventListener, Game
         }
     }
 
+    /**
+     * Timing thread, add count every half seconds
+     */
     private class MyRunnable implements Runnable {
 
         @Override

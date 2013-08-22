@@ -1,7 +1,7 @@
 /*
  * GameWorld.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -26,9 +26,11 @@ import java.util.Random;
 /**
  * MSc project
  * <p/>
+ * THis class responsible for handle the state change event
+ *
  * Created by Ziji Wang on 13-7-8.
  */
-public class GameWorld implements GameEventReceiver, GameStateHandler {
+public class GameWorld implements GameObserverSubject, GameStateHandler {
 
     private Resources resource;
     private int continent, randomCountry = -1, round = 1, state = GameStateMonitor.GAME_PREPARE;
@@ -37,7 +39,12 @@ public class GameWorld implements GameEventReceiver, GameStateHandler {
     private boolean isActive = false;
     private Activity activity;
 
-
+    /**
+     * Constructor
+     * @param resource Resource
+     * @param continent int, continent
+     * @param activity Activity, the GameActivity
+     */
     public GameWorld(Resources resource, int continent, Activity activity) {
         this.resource = resource;
         this.continent = continent;
@@ -91,22 +98,35 @@ public class GameWorld implements GameEventReceiver, GameStateHandler {
         }
     }
 
+    /**
+     * Get current state
+     * @return int. state
+     */
     public int getState() {
         return state;
     }
 
+    /**
+     * Report game lose to every monitor
+     */
     public void loseGame() {
         for (GameEventListener gameEventListener : listeners) {
             gameEventListener.onGameLose();
         }
     }
 
+    /**
+     * Report game pause to every monitor
+     */
     public void pauseGame() {
         for (GameEventListener gameEventListener : listeners) {
             gameEventListener.onGamePause();
         }
     }
 
+    /**
+     * Report game prepare to every monitor
+     */
     public void prepareGame() {
         if (!isActive) {
             randomCountry = getRandom();
@@ -118,28 +138,43 @@ public class GameWorld implements GameEventReceiver, GameStateHandler {
         }
     }
 
+    /**
+     * Report game quit to every monitor
+     */
     public void quitGame() {
         for (GameEventListener gameEventListener : listeners) {
             gameEventListener.onGameQuit();
         }
     }
 
+    /**
+     * Report game resume to every monitor
+     */
     public void resumeGame() {
         for (GameEventListener gameEventListener : listeners) {
             gameEventListener.onGameResume();
         }
     }
 
+    /**
+     * Setter for isActive
+     */
     public void setActive(boolean active) {
         isActive = active;
     }
 
+    /**
+     * Report game start to every monitor
+     */
     public void startGame() {
         for (GameEventListener gameEventListener : listeners) {
             gameEventListener.onGameStart();
         }
     }
 
+    /**
+     * Report game win to every monitor
+     */
     public void winGame() {
         round++;
         for (GameEventListener gameEventListener : listeners) {
@@ -147,6 +182,10 @@ public class GameWorld implements GameEventReceiver, GameStateHandler {
         }
     }
 
+    /**
+     * Get a random country
+     * @return index of country
+     */
     private int getRandom() {
         Random r = new Random();
         int temp = Math.abs(r.nextInt()) % countries.size();
@@ -155,10 +194,16 @@ public class GameWorld implements GameEventReceiver, GameStateHandler {
         return temp != randomCountry ? temp : getRandom();
     }
 
+    /**
+     * Initialize
+     */
     private void initialize() {
         loadCountries();
     }
 
+    /**
+     * Transfer the country information from XML to Java object
+     */
     private void loadCountries() {
         XmlResourceParser xml = null;
         switch (continent) {

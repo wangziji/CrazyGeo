@@ -1,7 +1,7 @@
 /*
  * DeviceInformation.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -25,6 +25,8 @@ import java.util.UUID;
 /**
  * MSc project
  * <p/>
+ * This class is for gain device information
+ *
  * Created by Ziji Wang on 13-6-21.
  */
 public class DeviceInformation {
@@ -32,6 +34,11 @@ public class DeviceInformation {
     public DeviceInformation() {
     }
 
+    /**
+     * Get display size
+     * @param activity Activity
+     * @return Point, size: point.x = width; point.y = height
+     */
     public Point getDisplaySize(Activity activity) {
         DisplayMetrics metric = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
@@ -41,6 +48,11 @@ public class DeviceInformation {
         return temp;
     }
 
+    /**
+     * Get UUID
+     * @param context Context
+     * @return String, UUID
+     */
     public String getID(Context context) {
         UUID uuid = UUID.randomUUID();
         String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -55,6 +67,11 @@ public class DeviceInformation {
         return uuid.toString();
     }
 
+    /**
+     * Get memory size
+     * @param context context
+     * @return String, memory size
+     */
     public String getMemorySize(Context context) {
         String str1 = "/proc/meminfo";
         String str2;

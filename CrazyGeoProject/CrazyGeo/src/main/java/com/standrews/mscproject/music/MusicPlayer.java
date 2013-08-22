@@ -1,7 +1,7 @@
 /*
  * MusicPlayer.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -16,6 +16,8 @@ import android.os.Handler;
 /**
  * MSc project
  * <p/>
+ * This class responsible for play back ground music
+ *
  * Created by Ziji Wang on 13-7-16.
  */
 public class MusicPlayer {
@@ -24,11 +26,19 @@ public class MusicPlayer {
     private boolean loop = true;
     private Handler handler;
 
+    /**
+     * Constructor
+     * @param resID int, resource ID
+     * @param context Context
+     */
     public MusicPlayer(int resID, Context context) {
         music = MediaPlayer.create(context, resID);
         handler = new Handler();
     }
 
+    /**
+     * Release the resource
+     */
     public void release() {
         if (music != null) {
             music.release();
@@ -36,6 +46,9 @@ public class MusicPlayer {
         }
     }
 
+    /**
+     * Start play music
+     */
     public void start() {
         handler.post(new Runnable() {
             @Override
@@ -46,6 +59,9 @@ public class MusicPlayer {
         });
     }
 
+    /**
+     * Stop the music
+     */
     public void stop() {
         handler.post(new Runnable() {
             @Override

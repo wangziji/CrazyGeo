@@ -1,7 +1,7 @@
 /*
  * MySeekBar.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -21,6 +21,9 @@ import com.standrews.mscproject.game.GameEventListener;
 /**
  * MSc project
  * <p/>
+ * This class defined the seek bar for the game activity.
+ * This seek bar responsible for adjust the size of map
+ *
  * Created by Ziji Wang on 13-7-14.
  */
 public class MySeekBar extends SeekBar implements GameEventListener {
@@ -29,6 +32,11 @@ public class MySeekBar extends SeekBar implements GameEventListener {
         super(context);
     }
 
+    /**
+     * Constructor, inherited from android.widget.SeekBar
+     * @param context context
+     * @param attrs AttributeSet
+     */
     public MySeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -37,6 +45,7 @@ public class MySeekBar extends SeekBar implements GameEventListener {
         super(context, attrs, defStyle);
     }
 
+    @Override
     protected void onSizeChanged(int w, int h, int oldWidth, int oldHeight) {
         super.onSizeChanged(h, w, oldHeight, oldWidth);
     }

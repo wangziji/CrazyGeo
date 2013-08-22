@@ -1,7 +1,7 @@
 /*
  * BackToMenuLayout.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -24,12 +24,19 @@ import com.standrews.mscproject.main.R;
 /**
  * MSc project
  * <p/>
+ * This class defined the quit button when game is paused
+ *
  * Created by Ziji Wang on 13-7-14.
  */
 public class BackToMenuLayout extends LinearLayout implements GameEventListener, GameStateReporter, View.OnClickListener {
 
     private GameStateMonitor mGameStateMonitor;
 
+    /**
+     * Constructor, inherited from android.widget.LinearLayout
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public BackToMenuLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }

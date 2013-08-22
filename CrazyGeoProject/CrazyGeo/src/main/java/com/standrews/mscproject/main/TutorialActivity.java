@@ -1,7 +1,7 @@
 /*
  * TutorialActivity.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -27,6 +27,8 @@ import com.standrews.mscproject.custom_ui_componets.MySeekBar;
 /**
  * MSc project
  * <p/>
+ * Activity for tutorial
+ *
  * Created by Ziji Wang on 13-7-23.
  */
 public class TutorialActivity extends Activity implements View.OnClickListener {

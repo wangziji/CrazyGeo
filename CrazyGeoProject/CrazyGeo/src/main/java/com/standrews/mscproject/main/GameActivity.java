@@ -1,7 +1,7 @@
 /*
  * GameActivity.java
  *
- * Created on: 17 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -37,7 +37,7 @@ import com.standrews.mscproject.custom_ui_componets.ResumeLayout;
 import com.standrews.mscproject.custom_ui_componets.ScoreTextView;
 import com.standrews.mscproject.game.GameStateMonitor;
 import com.standrews.mscproject.game.GameWorld;
-import com.standrews.mscproject.tcpconnection.AlarmReceiver;
+import com.standrews.mscproject.tcpconnection.FileTransmitService;
 import com.standrews.mscproject.game.ui_async_handler.UIAsyncHandler;
 import com.standrews.mscproject.utils.Configuration;
 import com.standrews.mscproject.utils.DisplayManager;
@@ -45,6 +45,8 @@ import com.standrews.mscproject.utils.DisplayManager;
 /**
  * MSc project
  * <p/>
+ * The activity of game play screen
+ *
  * Created by Ziji Wang on 13-7-8.
  */
 public class GameActivity extends Activity implements View.OnClickListener {
@@ -74,12 +76,13 @@ public class GameActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.i("me", "create");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        AlarmReceiver.gamePlaying=true;
+        FileTransmitService.gamePlaying=true;
         fl = (FrameLayout) findViewById(R.id.loadingLayoutGame);
         mHandler = new MyHandler();
 
@@ -141,7 +144,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
             gameWorld.quitGame();
             System.gc();
         }
-        AlarmReceiver.gamePlaying=false;
+        FileTransmitService.gamePlaying=false;
     }
 
     @Override
@@ -167,6 +170,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Set font and size for TextViews
+     */
     private void adjustComponents() {
         DisplayManager dm = new DisplayManager();
         dm.setFont(this, textView);
@@ -184,6 +190,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         scoreTextView.setPadding(padding, padding, padding, 0);
     }
 
+    /**
+     * Initialize all the component
+     */
     private void initialize() {
         int continent = getIntent().getIntExtra("continent", -1);
         handler = new UIAsyncHandler();
@@ -230,6 +239,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         help.setOnClickListener(this);
     }
 
+    /**
+     * Add observer for the subject
+     */
     private void setListener() {
         gameWorld.addGameEventListener(surfaceView);
         gameWorld.addGameEventListener(textView);
@@ -245,6 +257,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         gameWorld.addGameEventListener(handler);
     }
 
+    /**
+     * Set GameStateMonitor for component
+     */
     private void setMonitor() {
         surfaceView.setMonitor(gameStateMonitor);
         handler.setMonitor(gameStateMonitor);
@@ -290,6 +305,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Define the dialog
+     */
     protected void dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.tutorial_dialog_msg);

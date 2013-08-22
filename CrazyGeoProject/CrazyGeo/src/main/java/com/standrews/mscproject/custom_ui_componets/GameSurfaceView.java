@@ -1,7 +1,7 @@
 /*
  * GameSurfaceView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -28,7 +28,7 @@ import com.standrews.mscproject.game.GameEventListener;
 import com.standrews.mscproject.game.GameStateMonitor;
 import com.standrews.mscproject.game.GameStateReporter;
 import com.standrews.mscproject.main.R;
-import com.standrews.mscproject.multitouch.MultitouchHandler2;
+import com.standrews.mscproject.multitouch.MultitouchHandler;
 import com.standrews.mscproject.utils.Configuration;
 import com.standrews.mscproject.utils.DisplayManager;
 
@@ -37,6 +37,9 @@ import java.util.Random;
 /**
  * MSc project
  * <p/>
+ * The main display for the game, responsible for drawing the country and map.
+ * Pass the touch event to the MultitouchHandler.
+ *
  * Created by ziji on 13-6-25.
  */
 public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener, GameEventListener, GameStateReporter, SeekBar.OnSeekBarChangeListener, SoundPool.OnLoadCompleteListener {
@@ -44,7 +47,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private SurfaceHolder holder;
     private BitmapResource src, tar;
     private Boolean isFitted = false, isPaused = true, isFirstTime = true, soundLoaded = false;
-    private MultitouchHandler2 mHandler;
+    private MultitouchHandler mHandler;
     private Country country;
     private DisplayManager dm;
     private String packName;
@@ -52,8 +55,12 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private SoundPool soundPool;
     private int soundID, sound;
     private float mapScaleFactor, baseline;
-//    private Integer baseline;
 
+    /**
+     * Constructor, inherited from android.view.SurfaceView
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public GameSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnTouchListener(this);
@@ -61,7 +68,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         if (holder != null) {
             holder.addCallback(this);
         }
-        mHandler = new MultitouchHandler2(context, this);
+        mHandler = new MultitouchHandler(context, this);
         dm = new DisplayManager();
 
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -72,6 +79,9 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         sound = Integer.parseInt(configuration.getConfigProperties(context).getProperty("SOUND"));
     }
 
+    /**
+     * Draw a gray layer when game is paused
+     */
     public void drawOnPaused() {
         Canvas canvas = holder.lockCanvas(null);
         if (canvas != null) {
@@ -95,28 +105,50 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         this.invalidate();
     }
 
+    /**
+     * Getter for country
+     * @return Country
+     */
     public Country getCountry() {
         return country;
     }
 
+    /**
+     * Setter for country
+     * @param country Country
+     */
     public void setCountry(Country country) {
         this.country = country;
     }
 
+    /**
+     * Get the BitmapResource for the country
+     * @return BitmapResource
+     */
     public BitmapResource getCurrentBitmap() {
         return src;
     }
 
+    /**
+     * Get the scale factor of the map
+     * @return Float scale factor
+     */
     public float getMapScaleFactor() {
         return mapScaleFactor;
     }
 
+    /**
+     * Get the BitmapResource for the map
+     * @return BitmapResource
+     */
     public BitmapResource getTargetBitmap() {
         return tar;
     }
 
     @Override
     public void onGamePrepare(Country country, int continent, int round) {
+
+        //initialize for the continent map
         if (isFirstTime) {
             switch (continent) {
                 case Continent.ASIA:
@@ -138,11 +170,17 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
             isFirstTime = false;
         }
+
+        // Set country
         setCountry(country);
         setSource();
+
+        //Reset the position and size for country and map
         resetSource();
         resetTarget();
         isFitted = false;
+
+        //Log the header and objects
         mHandler.loggingHeader();
         mHandler.loggingObjects();
         drawOnPaused();
@@ -177,6 +215,8 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         mHandler.loggingEnd();
         isPaused = true;
         tar.saveState();
+
+        // Show the country on the right place
         float targetX = country.getTarPosX() * tar.getScaleFactor() * tar.getSeekBarValue() * mapScaleFactor;
         float targetY = country.getTarPosY() * tar.getScaleFactor() * tar.getSeekBarValue() * mapScaleFactor;
         float height = country.getTarHeight() * tar.getScaleFactor() * tar.getSeekBarValue() * mapScaleFactor;
@@ -187,6 +227,8 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override
     public void onGameQuit() {
+
+        //recycle bitmaps
         mHandler.loggingEnd();
         soundPool.release();
         src.recycle();
@@ -224,6 +266,9 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
+    /**
+     * Called when object's position updated
+     */
     public void rePaint() {
         Canvas canvas = holder.lockCanvas(null);
         if (canvas != null) {
@@ -245,6 +290,7 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         holder.unlockCanvasAndPost(canvas);
         this.invalidate();
+        //Play the 'win' sound effects
         if (isFitted) {
             isPaused = true;
             if (soundLoaded && sound == 0) {
@@ -254,6 +300,9 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
+    /**
+     * Reset the position of country
+     */
     public void resetSource() {
         //give the source image a random rotation
         Random r = new Random();
@@ -268,6 +317,9 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         src.saveState();
     }
 
+    /**
+     * Reset the position of map
+     */
     public void resetTarget() {
         tar.reset(0, 0, getWidth(), getHeight());
         tar.setSeekBarValue(1);
@@ -282,6 +334,10 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         tar.saveState();
     }
 
+    /**
+     * Change the boolean isFitted, true meas the the country matched it position, false means not yet.
+     * @param fitted Boolean
+     */
     public void setFitted(Boolean fitted) {
         isFitted = fitted;
     }
@@ -296,10 +352,17 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         gameStateMonitor.onStateChange(state);
     }
 
+    /**
+     * Set the pack name
+     * @param packName String
+     */
     public void setPackName(String packName) {
         this.packName = packName;
     }
 
+    /**
+     * Initialize the country
+     */
     public void setSource() {
         if (src != null) {
             src.recycle();
@@ -308,6 +371,10 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         src = new BitmapResource(getResources(), findResourceID(country.getResID()), minSize);
     }
 
+    /**
+     * Initialize the map
+     * @param id int, the ID of drawable resource
+     */
     public void setTarget(int id) {
         float minSize = dm.DIPtoPixel(100, getContext());
         tar = new BitmapResource(getResources(), id, minSize, getWidth(), getHeight());
@@ -330,6 +397,13 @@ public class GameSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     }
 
+    /**
+     * Extract the drawable resource ID from the given name.
+     * NOTE: the return could be NULL
+     *
+     * @param name String, name of the resource
+     * @return int, Id of the resource
+     */
     private int findResourceID(String name) {
         return getResources().getIdentifier(name, "drawable", packName);
     }

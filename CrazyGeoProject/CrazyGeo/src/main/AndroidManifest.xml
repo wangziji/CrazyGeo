@@ -2,7 +2,7 @@
 <!--
   ~ AndroidManifest.xml
   ~
-  ~ Created on: 9 /8 /2013
+  ~ Created on: 22 /8 /2013
   ~
   ~ Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
   ~ This software is the proprietary information of University of St. Andrews.
@@ -58,9 +58,8 @@
         <activity android:name=".CreditsActivity"
                   android:screenOrientation="landscape"
                   android:configChanges="keyboard|keyboardHidden|orientation"/>
-        <service android:name="com.standrews.mscproject.tcpconnection.TCPService"/>
-        <service android:name="com.standrews.mscproject.tcpconnection.InternetService"/>
-        <receiver android:name="com.standrews.mscproject.tcpconnection.AlarmReceiver"/>
+
+        <receiver android:name="com.standrews.mscproject.tcpconnection.FileTransmitService"/>
     </application>
 
     <supports-screens

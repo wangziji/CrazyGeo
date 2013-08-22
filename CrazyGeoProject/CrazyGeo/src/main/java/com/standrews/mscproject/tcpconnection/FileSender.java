@@ -1,7 +1,7 @@
 /*
  * FileSender.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -30,12 +30,18 @@ import java.util.Properties;
 /**
  * MSc project
  * <p/>
+ * This class responsible for build TCP/IP connection and send file
+ *
  * Created by Ziji Wang on 13-6-7.
  */
 public class FileSender {
 
     private String ip, port, dir;
 
+    /**
+     * Constructor
+     * @param context
+     */
     public FileSender(Context context) {
         Configuration mConfiguration = new Configuration();
         Properties properties = mConfiguration.getConfigProperties(context);
@@ -44,8 +50,11 @@ public class FileSender {
         this.dir = properties.getProperty("DATA_DIR");
     }
 
+    /**
+     * Build connection and send file
+     * @return int, the result: 0 = no file; 1 = success; 2 = IO exception; 3 = network exception
+     */
     public int send() {
-
         Socket socket = null;
         File rootPath = new File(Environment.getExternalStorageDirectory(), dir);
         if (!rootPath.exists()) {

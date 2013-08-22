@@ -1,7 +1,7 @@
 /*
  * Logger.java
  *
- * Created on: 17 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -24,6 +24,8 @@ import java.util.Properties;
 /**
  * MSc project
  * <p/>
+ * This class responsible for logging
+ *
  * Created by Ziji Wang on 13-6-21.
  */
 public class Logger {
@@ -33,10 +35,16 @@ public class Logger {
     private boolean inProgress;
     private Handler handler;
 
+    /**
+     * Constructor
+     */
     public Logger() {
         handler = new Handler();
     }
 
+    /**
+     * Write the closure for the XML
+     */
     public void writeEnd() {
         if (inProgress) {
             efm.writeFile("\t</body>\n" + "</root>");
@@ -44,6 +52,10 @@ public class Logger {
         }
     }
 
+    /**
+     * Write the header for the XML
+     * @param context Context
+     */
     public void writeHeader(Context context) {
         inProgress = true;
         Configuration config = new Configuration();
@@ -70,6 +82,12 @@ public class Logger {
 
     }
 
+    /**
+     * Write movement for the XML
+     * @param event MotionEvent
+     * @param rotate boolean, rotate
+     * @param scale boolean scale
+     */
     public void writeMovement(MotionEvent event, boolean rotate, boolean scale) {
         if (inProgress) {
             sb = new StringBuilder();
@@ -88,6 +106,11 @@ public class Logger {
         }
     }
 
+    /**
+     * Write the information of country and map into XML
+     * @param init BitmapResource, country
+     * @param tar BitmapResource, map
+     */
     public void writeShapes(BitmapResource init, BitmapResource tar) {
         if (inProgress) {
             sb = new StringBuilder();

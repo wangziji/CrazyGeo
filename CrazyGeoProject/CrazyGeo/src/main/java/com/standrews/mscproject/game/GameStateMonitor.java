@@ -1,7 +1,7 @@
 /*
  * GameStateMonitor.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -15,6 +15,9 @@ import android.os.Message;
 /**
  * MSc project
  * <p/>
+ * When a component report a stage change event to this monitor,
+ * this class tell the GameStateHandler to deal with it.
+ *
  * Created by Ziji Wang on 13-7-11.
  */
 public class GameStateMonitor extends Handler {
@@ -44,6 +47,10 @@ public class GameStateMonitor extends Handler {
         }
     }
 
+    /**
+     * Inform the GameStateHandler to deal with the state change event
+     * @param state int, state
+     */
     public void onStateChange(int state) {
         gameStateHandler.changeState(state);
     }

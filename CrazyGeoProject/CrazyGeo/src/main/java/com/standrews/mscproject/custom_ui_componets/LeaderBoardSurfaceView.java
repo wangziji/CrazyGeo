@@ -1,7 +1,7 @@
 /*
  * LeaderBoardSurfaceView.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -23,6 +23,8 @@ import com.standrews.mscproject.utils.Configuration;
 /**
  * MSc project
  * <p/>
+ * This class responsible for drawing the bar chart for the leaderboard
+ *
  * Created by Ziji Wang on 13-7-26.
  */
 public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
@@ -46,7 +48,11 @@ public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder
         super(context, attrs, defStyle);
     }
 
-    //
+    /**
+     * Constructor, inherited from android.view.SurfaceView
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public LeaderBoardSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
@@ -56,11 +62,15 @@ public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder
         }
     }
 
+    /**
+     * Draw the bar chart
+     */
     public void drawChart() {
         Canvas canvas = holder.lockCanvas(null);
         if (canvas != null) {
             canvas.drawARGB(255, 255, 250, 205);
             Paint p1 = new Paint();
+            //Draw the bars
             p1.setColor(Color.rgb(26, 26, 26));
             canvas.drawRect(0, getHeight() - lineHeight, getWidth(), getHeight() - lineHeight + 3, p1);
             p1.setColor(Color.rgb(231, 66, 12));
@@ -69,6 +79,7 @@ public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder
             canvas.drawRect(africaPos[0], africaPos[1], africaPos[2], africaPos[3], p1);
             canvas.drawRect(americaPos[0], americaPos[1], americaPos[2], americaPos[3], p1);
 
+            //Draw the text
             Paint text = new Paint();
             text.setColor(Color.rgb(26, 26, 26));
             text.setTypeface(typeface);
@@ -114,6 +125,9 @@ public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
     }
 
+    /**
+     * Initialize, loading data from config file
+     */
     private void initialize() {
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/Comics_font_by_kernalphage.ttf");
         Configuration configuration = new Configuration();
@@ -124,6 +138,7 @@ public class LeaderBoardSurfaceView extends SurfaceView implements SurfaceHolder
 
         int highest = Math.max(Math.max(asia, europe), Math.max(africa, america));
 
+        //calculate the size for the bars
         int MAX = 30;
         int max = highest > MAX ? highest : MAX;
         float height = getHeight() * 0.618f;

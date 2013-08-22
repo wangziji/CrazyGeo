@@ -1,7 +1,7 @@
 /*
  * DisplayManager.java
  *
- * Created on: 9 /8 /2013
+ * Created on: 22 /8 /2013
  *
  * Copyright (c) 2013 Ziji Wang and University of St. Andrews. All Rights Reserved.
  * This software is the proprietary information of University of St. Andrews.
@@ -19,6 +19,8 @@ import android.widget.TextView;
 /**
  * MSc project
  * <p/>
+ * This utility is for manage several display issue
+ *
  * Created by Ziji Wang on 13-7-6.
  */
 public class DisplayManager {
@@ -52,6 +54,11 @@ public class DisplayManager {
         return size;
     }
 
+    /**
+     * Set font for text view
+     * @param c Context
+     * @param v TextView
+     */
     public void setFont(Context c, TextView v) {
         Typeface face = Typeface.createFromAsset(c.getAssets(), "fonts/Comics_font_by_kernalphage.ttf");
         v.setTypeface(face);
